@@ -1,0 +1,27 @@
+{% include 'layout/header.html' %} {% include 'layout/nav.html' %} {% block
+content %}
+
+<div class="container">
+  <br />
+  <div class="mb-3">
+    <h2>EC2 CloudWatch</h2>
+  </div>
+  <form method="POST" action="{{ url_for('config_alarms') }}">
+    <div class="mb-3">
+      {{ form.instance_id.label(class_="form-label") }} 
+      {{ form.instance_id(class_="form-control") }}
+    </div>
+    <div class="mb-3">
+      <input type="submit" value="Submit" class="btn btn-primary" />
+    </div>
+  </form>
+
+  {% with messages = get_flashed_messages() %} {% if messages %}
+  <ul class="flashes">
+    {% for message in messages %}
+    <li class="{{ message }}">{{ message }}</li>
+    {% endfor %}
+  </ul>
+  {% endif %} {% endwith %}
+</div>
+{% endblock %} {% include 'layout/footer.html' %}

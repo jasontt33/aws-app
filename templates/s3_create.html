@@ -1,0 +1,35 @@
+{% include 'layout/header.html' %} {% include 'layout/nav.html' %} {% block
+content %}
+
+<div class="container">
+  <br />
+  <div class="mb-3">
+    <h2>Build an Non-Public S3 Bucket</h2>
+  </div>
+
+  <form method="POST" action="{{ url_for('s3_create') }}">
+    <div class="mb-3">
+      {{ form.bucket_name.label(class_="form-label") }} 
+      {{ form.bucket_name(class_="form-control") }}
+    </div>
+    <div class="mb-3">
+      {{ form.owner.label(class_="form-label") }}
+      {{ form.owner(class_="form-control") }}
+    </div>
+
+    <div>
+      <input type="submit" value="Submit" />
+    </div>
+  </form>
+
+  {% with messages = get_flashed_messages() %} {% if messages %}
+  <div class="mb-3">
+    <ul class="flashes">
+      {% for message in messages %}
+      <li class="{{ message }}">{{ message }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %} {% endwith %}
+</div>
+{% endblock %} {% include 'layout/footer.html' %}

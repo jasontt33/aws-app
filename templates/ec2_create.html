@@ -1,0 +1,52 @@
+{% include 'layout/header.html' %}
+{% include 'layout/nav.html' %}
+{% block content %}
+
+<div class="container">
+  <br />
+  <div class="mb-3">
+    <h2>Build an ec2 server with SSH Security Groups</h2>
+  </div>
+  <form method="POST">
+    <div class="mb-3">
+      {{ form.server_type.label(class_="form-label") }}
+      {{ form.server_type(class_="form-control") }}
+    </div>
+    <div class="mb-3">
+      {{ form.owner.label(class_="form-label") }}
+      {{ form.owner(class_="form-control") }}
+    </div>
+    <div class="mb-3">
+      {{ form.server_name.label(class_="form-label") }}
+      {{ form.server_name(class_="form-control") }}
+    </div>
+    <div class="mb-3">
+      <input type="submit" value="Submit" class="btn btn-primary" />
+    </div>
+  </form>
+  
+  {% if key %}
+  <div class="mb-3">
+    <p>
+      PEM key follows. Copy and paste into a text editor, name it with a .pem extension
+    </p>
+    <pre class="bg-light text-center border">
+      
+      {{ key }}
+    </pre>
+  </div>
+  {% endif %}
+  <br />
+
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+  <ul class="flashes">
+    {% for message in messages %}
+    <li class="{{ message }}">{{ message }}</li>
+    {% endfor %}
+  </ul>
+  {% endif %} {% endwith %}
+</div>
+
+{% endblock %}
+{% include 'layout/footer.html' %}

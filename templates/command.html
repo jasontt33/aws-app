@@ -1,0 +1,35 @@
+{% include 'layout/header.html' %} {% include 'layout/nav.html' %} {% block
+content %}
+
+<div class="container">
+  <br />
+  <div class="mb-3">
+    <h2>Send a command to an EC2</h2>
+    <small>Must have SSM and a Role assigned to EC2</small>
+  </div>
+
+  <form method="POST" action="{{ url_for('command') }}">
+    <div class="mb-3">
+      {{ form.instances.label(class_="form-label") }} {{
+      form.instances(class_="form-control") }}
+    </div>
+    <div class="mb-3">
+      {{ form.command.label(class_="form-label") }} {{
+      form.command(class_="form-control") }}
+    </div>
+    <div class="mb-3">
+      <input type="submit" value="Submit" class="btn btn-primary" />
+    </div>
+  </form>
+
+  {% with messages = get_flashed_messages() %} {% if messages %}
+  <div class="mb-3">
+    <ul class="flashes">
+      {% for message in messages %}
+      <li class="{{ message }}">{{ message }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %} {% endwith %}
+</div>
+{% endblock %} {% include 'layout/footer.html' %}

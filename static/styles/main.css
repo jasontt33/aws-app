@@ -1,0 +1,220 @@
+***************************************************************************
+                                MAIN
+***************************************************************************
+form {
+    margin-top: 10px;
+    padding: 30px 30px;
+}
+
+body {
+    background-color: lightgray;
+}
+
+table {
+    float: center;
+    text-align: center;
+    width: 100%;
+}
+
+tr, td {
+    padding: 15px;
+    text-align: center;
+}
+
+h1 {
+    color: #488ace;
+    text-align: center;
+    font-weight: 600;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+h1 {
+    color: white;
+    background: linear-gradient(0.25turn,#2a78ca, #71a1d4);
+    width: 100%;
+    height: 100px;
+    float: center;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 2.2em;
+    text-align: center;
+    padding-top: 6%;
+
+}
+
+div{
+    float: center;
+    text-align: center;
+    padding: 10px;
+    margin: 10px;
+}
+
+h3 {
+    color: #488ace;
+    text-align: center;
+    font-weight: 600;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+p {
+    margin: 0 0px 10px;
+    margin-left: 0px!important;
+}
+
+button {
+    color: white;
+    background: linear-gradient(0.25turn,#2a78ca, #71a1d4);
+    width: 100%;
+    float: center;
+    border: none;
+    border-radius: 4px;
+    padding: 15px 25px;
+    /* margin-right: 10px; */
+    box-shadow: 0px 0px 4px 0px #00000087;
+    margin-top: 15px;
+}
+
+.flashmessage {
+    color: red;
+    width: 100%;
+    height: 100px;
+    float: center;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 2.2em;
+    text-align: center;
+    padding-top: 6%;
+}
+
+.browsebutton {
+    color: white;
+    background: linear-gradient(0.25turn,#2a78ca, #71a1d4);
+    border: none;
+    border-radius: 4px;
+    padding: 15px 23px;
+    box-shadow: 0px 0px 4px 0px #00000087;
+    margin-top: 15px;
+}
+
+textarea {
+    width: 90%;
+    height: 122px;
+}
+
+***************************************************************************
+                                
+***************************************************************************/
+
+form {
+    margin-top: 0px;
+    padding: 0px 30px;
+}
+
+h3 {
+    color: #488ace;
+    text-align: center;
+    font-weight: 600;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+h1 {
+    color: #488ace;
+    text-align: center;
+    font-weight: 600;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+b {
+    color: #488ace;
+    text-align: center;
+    font-weight: 400;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+p {
+    margin: 0 0px 10px;
+    margin-left: 0px!important;
+}
+label {
+    text-align: center;
+}
+input {
+   width: 20%;
+    border: none;
+    padding: 20px;
+    border-radius: 4px;
+}
+
+select {
+    width: 20%;
+     border: none;
+     padding: 20px;
+     border-radius: 4px;
+ }
+
+textarea#message {
+    width: 100%;
+    height: 122px;
+    border: 1px solid #dddddd78;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+input#submit {
+    color: white;
+    background: linear-gradient(0.25turn,#2a78ca, #71a1d4);
+    width: 10%;
+    float: left;
+    border: none;
+    border-radius: 4px;
+    padding: 15px 23px;
+    /* margin-right: 10px; */
+    box-shadow: 0px 0px 4px 0px #00000087;
+    margin-top: 15px;
+}
+
+a {
+    color: blue;
+    padding: 23px 23px;
+    margin-top: 15px;
+}
+
+/***************************************************************************
+                                
+***************************************************************************/
+
+/***********************************************************************
+                                Nav bar mostly
+**********************************************************************/
+ul {
+  list-style-type: none;
+  margin: 0px;
+  padding: 15px;
+  overflow: hidden;
+  background: linear-gradient(0.25turn,#2a78ca, #71a1d4);
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #71a1d4;
+}
+
+.active {
+  margin: 15px;
+  background-color: #71a1d4;
+}

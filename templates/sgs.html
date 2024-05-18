@@ -1,0 +1,126 @@
+{% include 'layout/header.html' %} {% include 'layout/nav.html' %} {% block
+content %}
+<style>
+  #Progress_Status {
+    width: 50%;
+    background-color: #ddd;
+  }
+  #myprogressBar {
+    width: 2%;
+    height: 20px;
+    background-color: #4caf50;
+  }
+
+  .spinner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    display: block;
+  }
+
+  .spinner-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -16px;
+    margin-left: -16px;
+    width: 32px;
+    height: 32px;
+    border: 4px solid #fff;
+    border-right-color: transparent;
+    border-radius: 50%;
+    animation: spinner-rotate 1s linear infinite;
+  }
+
+  .spinner-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: 24px;
+    margin-left: -40px;
+    width: 80px;
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  @keyframes spinner-rotate {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+</style>
+<script>
+  $(document).ready(function () {
+    $(document).on({
+      ajaxStart: function () {
+        $("#spinner").fadeIn();
+      },
+      ajaxStop: function () {
+        $("#spinner").fadeOut();
+      },
+    });
+  });
+</script>
+
+<div class="container">
+  <br />
+  <div class="mb-3">
+    <h2>Clean Orphaned Security Groups</h2>
+  </div>
+  <form method="POST" action="{{ url_for('sgs') }}">
+    <div class="mb-3">
+      <p>
+        Find all UNATTACHED Security Groups (<small>i.e. SGs not in use</small>)
+      </p>
+      <input type="submit" value="Find SGs" class="btn btn-primary" />
+    </div>
+  </form>
+
+  <div id="spinner" class="spinner">
+    <div class="spinner-icon"></div>
+    <div class="spinner-text">Loading...</div>
+  </div>
+
+  <br />
+  <div class="mb-3">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Security Group Name</th>
+        <th>Delete?</th>
+      </tr>
+      {% for name in sg_names: %}
+      <tr>
+        <td>{{ name }}</td>
+        <td>
+          <form action="{{ url_for('sgs_del', sg_name=name) }}" method="POST">
+            <input type="hidden" name="_method" value="DELETE" />
+            <button type="submit" class="btn btn-danger" >Delete</button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+
+  <!-- {% for group in security_groups %}
+      <label>{{ group }}</label>
+    {% endfor %}
+    <label>{{ SG_count }}</label> -->
+
+  {% with messages = get_flashed_messages() %} {% if messages %}
+  <div class="mb-3">
+    <ul class="flashes">
+      {% for message in messages %}
+      <li class="{{ message }}">{{ message }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %} {% endwith %}
+</div>
+{% endblock %} {% include 'layout/footer.html' %}
