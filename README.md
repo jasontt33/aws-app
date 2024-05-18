@@ -25,4 +25,4 @@ This is a utility application for building and maintaining AWS infrastructure, u
 
 ### Who do I talk to? ###
 
-* Jason Thompson / Custom Solutions
+* Jason Thompson 
